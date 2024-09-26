@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(About));
             richTextBox = new RichTextBox();
             flowLayoutPanel1 = new FlowLayoutPanel();
             okButton = new Button();
@@ -38,60 +39,38 @@
             // 
             // richTextBox
             // 
+            resources.ApplyResources(richTextBox, "richTextBox");
             richTextBox.AutoWordSelection = true;
             richTextBox.BackColor = Color.White;
             richTextBox.BorderStyle = BorderStyle.FixedSingle;
-            richTextBox.Dock = DockStyle.Fill;
             richTextBox.ForeColor = Color.Black;
-            richTextBox.Location = new Point(8, 8);
-            richTextBox.Margin = new Padding(8);
             richTextBox.Name = "richTextBox";
             richTextBox.ReadOnly = true;
-            richTextBox.Size = new Size(281, 307);
-            richTextBox.TabIndex = 1;
-            richTextBox.Text = "";
-            richTextBox.WordWrap = false;
             // 
             // flowLayoutPanel1
             // 
-            flowLayoutPanel1.Anchor = AnchorStyles.Right;
-            flowLayoutPanel1.AutoSize = true;
+            resources.ApplyResources(flowLayoutPanel1, "flowLayoutPanel1");
             flowLayoutPanel1.Controls.Add(okButton);
-            flowLayoutPanel1.Location = new Point(213, 326);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(81, 29);
-            flowLayoutPanel1.TabIndex = 2;
             // 
             // okButton
             // 
+            resources.ApplyResources(okButton, "okButton");
             okButton.DialogResult = DialogResult.OK;
-            okButton.Location = new Point(3, 3);
             okButton.Name = "okButton";
-            okButton.Size = new Size(75, 23);
-            okButton.TabIndex = 0;
-            okButton.Text = "OK";
             okButton.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel1
             // 
-            tableLayoutPanel1.ColumnCount = 1;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            resources.ApplyResources(tableLayoutPanel1, "tableLayoutPanel1");
             tableLayoutPanel1.Controls.Add(richTextBox, 0, 0);
             tableLayoutPanel1.Controls.Add(flowLayoutPanel1, 0, 1);
-            tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 2;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle());
-            tableLayoutPanel1.Size = new Size(297, 358);
-            tableLayoutPanel1.TabIndex = 3;
             // 
             // About
             // 
-            AutoScaleDimensions = new SizeF(7F, 17F);
+            resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(297, 358);
             Controls.Add(tableLayoutPanel1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             HelpButton = true;
@@ -99,7 +78,6 @@
             MinimizeBox = false;
             Name = "About";
             ShowInTaskbar = false;
-            Text = "About Energy Total";
             flowLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();

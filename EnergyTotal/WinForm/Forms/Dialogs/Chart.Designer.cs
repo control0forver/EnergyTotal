@@ -30,6 +30,7 @@ namespace EnergyTotal.WinForm.Forms.Dialogs
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Chart));
             mainChart = new ScottPlot.WinForms.FormsPlot();
             menuStrip1 = new MenuStrip();
             chartToolStripMenuItem = new ToolStripMenuItem();
@@ -44,99 +45,80 @@ namespace EnergyTotal.WinForm.Forms.Dialogs
             // 
             // mainChart
             // 
+            resources.ApplyResources(mainChart, "mainChart");
             mainChart.BackColor = SystemColors.Control;
             mainChart.DisplayScale = 1F;
-            mainChart.Dock = DockStyle.Fill;
-            mainChart.Location = new Point(0, 25);
             mainChart.Name = "mainChart";
-            mainChart.Size = new Size(800, 425);
-            mainChart.TabIndex = 2;
             mainChart.MouseDown += OnMainChartMouseDown;
             mainChart.MouseUp += OnMainChartMouseUp;
             // 
             // menuStrip1
             // 
+            resources.ApplyResources(menuStrip1, "menuStrip1");
             menuStrip1.Items.AddRange(new ToolStripItem[] { chartToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(800, 25);
-            menuStrip1.TabIndex = 3;
-            menuStrip1.Text = "menuStrip1";
             // 
             // chartToolStripMenuItem
             // 
+            resources.ApplyResources(chartToolStripMenuItem, "chartToolStripMenuItem");
             chartToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { refreshToolStripMenuItem, pausedToolStripMenuItem, autoScaleToolStripMenuItem, clearToolStripMenuItem, filterToolStripMenuItem });
             chartToolStripMenuItem.Name = "chartToolStripMenuItem";
-            chartToolStripMenuItem.Size = new Size(59, 21);
-            chartToolStripMenuItem.Text = "(&C)hart";
             // 
             // refreshToolStripMenuItem
             // 
+            resources.ApplyResources(refreshToolStripMenuItem, "refreshToolStripMenuItem");
             refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
-            refreshToolStripMenuItem.ShortcutKeys = Keys.F5;
-            refreshToolStripMenuItem.Size = new Size(180, 22);
-            refreshToolStripMenuItem.Text = "(&R)efresh";
             refreshToolStripMenuItem.Click += OnRefreshClick;
             // 
             // pausedToolStripMenuItem
             // 
+            resources.ApplyResources(pausedToolStripMenuItem, "pausedToolStripMenuItem");
             pausedToolStripMenuItem.CheckOnClick = true;
             pausedToolStripMenuItem.Name = "pausedToolStripMenuItem";
-            pausedToolStripMenuItem.ShortcutKeys = Keys.F6;
-            pausedToolStripMenuItem.Size = new Size(180, 22);
-            pausedToolStripMenuItem.Text = "(&P)aused";
             pausedToolStripMenuItem.CheckedChanged += OnPausedCheckedChanged;
             // 
             // autoScaleToolStripMenuItem
             // 
+            resources.ApplyResources(autoScaleToolStripMenuItem, "autoScaleToolStripMenuItem");
             autoScaleToolStripMenuItem.Checked = true;
             autoScaleToolStripMenuItem.CheckOnClick = true;
             autoScaleToolStripMenuItem.CheckState = CheckState.Checked;
             autoScaleToolStripMenuItem.Name = "autoScaleToolStripMenuItem";
-            autoScaleToolStripMenuItem.ShortcutKeys = Keys.F7;
-            autoScaleToolStripMenuItem.Size = new Size(180, 22);
-            autoScaleToolStripMenuItem.Text = "(&A)uto Scale";
             autoScaleToolStripMenuItem.CheckedChanged += OnAutoScaleCheckedChanged;
             // 
             // clearToolStripMenuItem
             // 
+            resources.ApplyResources(clearToolStripMenuItem, "clearToolStripMenuItem");
             clearToolStripMenuItem.Name = "clearToolStripMenuItem";
-            clearToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.D;
-            clearToolStripMenuItem.Size = new Size(180, 22);
-            clearToolStripMenuItem.Text = "(C)lear";
             clearToolStripMenuItem.Click += OnClearClick;
             // 
             // filterToolStripMenuItem
             // 
+            resources.ApplyResources(filterToolStripMenuItem, "filterToolStripMenuItem");
             filterToolStripMenuItem.Checked = true;
             filterToolStripMenuItem.CheckOnClick = true;
             filterToolStripMenuItem.CheckState = CheckState.Checked;
             filterToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { recordLifeChangesOnlyToolStripMenuItem });
             filterToolStripMenuItem.Name = "filterToolStripMenuItem";
-            filterToolStripMenuItem.Size = new Size(180, 22);
-            filterToolStripMenuItem.Text = "(&F)ilter";
             filterToolStripMenuItem.CheckedChanged += OnFilterCheckedChanged;
             // 
             // recordLifeChangesOnlyToolStripMenuItem
             // 
+            resources.ApplyResources(recordLifeChangesOnlyToolStripMenuItem, "recordLifeChangesOnlyToolStripMenuItem");
             recordLifeChangesOnlyToolStripMenuItem.Checked = true;
             recordLifeChangesOnlyToolStripMenuItem.CheckOnClick = true;
             recordLifeChangesOnlyToolStripMenuItem.CheckState = CheckState.Checked;
             recordLifeChangesOnlyToolStripMenuItem.Name = "recordLifeChangesOnlyToolStripMenuItem";
-            recordLifeChangesOnlyToolStripMenuItem.Size = new Size(245, 22);
-            recordLifeChangesOnlyToolStripMenuItem.Text = "Record on Life Changes Only";
             recordLifeChangesOnlyToolStripMenuItem.CheckedChanged += OnFilterRecordOnLifePercentChangesOnlyCheckedChanged;
             // 
             // Chart
             // 
-            AutoScaleDimensions = new SizeF(7F, 17F);
+            resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
             Controls.Add(mainChart);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "Chart";
-            Text = "Monitor Chart View";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
