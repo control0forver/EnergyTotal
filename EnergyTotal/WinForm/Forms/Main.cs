@@ -98,7 +98,7 @@ public partial class Main : Form
     {
         var powerInfo = SystemInformation.PowerStatus;
 
-        chartForm.AddRecord(new(powerInfo));
+        chartForm.AddRecords(true, new Primitives.EnergyRecord(powerInfo));
     }
 
     private void OnEnabledCheckedChanged(object sender, EventArgs e)
@@ -162,16 +162,16 @@ public partial class Main : Form
             content: "Enter the interval: ",
             title: "Set Monitor Interval",
             defaultInput: monitorInterval.ToString(),
-            confirmCallback: (_, input) => 
+            confirmCallback: (_, input) =>
             {
                 if (!TimeSpan.TryParse(input, out TimeSpan parse))
                 {
-                    MessageBox.Show($"Error parsing \"{input}\", please check and try again.","Setting New Interval");
+                    MessageBox.Show($"Error parsing \"{input}\", please check and try again.", "Setting New Interval");
                     return false;
                 }
 
                 MonitorInterval = parse;
-                return true; 
+                return true;
             },
             cancelCallback: (_, input) => { return true; })
         .ShowDialog();

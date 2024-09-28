@@ -1,4 +1,6 @@
-﻿namespace EnergyTotal.Primitives
+﻿using System.Collections.ObjectModel;
+
+namespace EnergyTotal.Primitives
 {
     public class EnergyRecord
     {
@@ -19,5 +21,31 @@
             Status = EnergyStatus.FromBatteryChargeStatus(powerStatus.BatteryChargeStatus);
             LifePercent = powerStatus.BatteryLifePercent;
         }
+    }
+
+    public static class EnergyRecordsExtension
+    {
+        public static IReadOnlyList<IReadOnlyList<EnergyRecord>> SplitRecordsByStatus(this IEnumerable<EnergyRecord> records) =>
+            records.Aggregate(
+                new List<ReadOnlyCollection<EnergyRecord>>(),
+                (groups, current) =>
+                {
+                    if (groups.Count == 0 || groups.Last().Last().Status != current.Status)
+                    {
+                        groups.Add(new ReadOnlyCollection<EnergyRecord>([current]));
+                    }
+                    else
+                    {
+                        var lastGroup = groups.Last();
+                        var tempList = new List<EnergyRecord>(lastGroup)
+                        {
+                            current
+                        };
+                        groups.RemoveAt(groups.Count - 1);
+                        groups.Add(new ReadOnlyCollection<EnergyRecord>(tempList));
+                    }
+                    return groups;
+                }
+            ).AsReadOnly();
     }
 }

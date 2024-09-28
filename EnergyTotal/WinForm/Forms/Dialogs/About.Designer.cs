@@ -69,6 +69,7 @@
             // 
             // About
             // 
+            AcceptButton = okButton;
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(tableLayoutPanel1);
